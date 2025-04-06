@@ -1,0 +1,84 @@
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0.375rem 1rem; /* Adjusted padding for height match */
+    height: 38px; /* Explicit height to match input */
+    display: flex;
+    align-items: center;
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Add cursor for better UX */
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .search-btn i {
+    background-color: transparent;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 2rem 0.5rem 3rem; /* Adjusted left padding for icon */
+    font-size: 1rem;
+    border: 1px solid #ced4da; /* Add a subtle border for better definition */
+    background-image: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/magnifying-glass.svg'); /* Example icon - replace with your own */
+    background-repeat: no-repeat;
+    background-position: 0.75rem center;
+    background-size: 1rem; /* Adjust size as needed */
+  }
+
+  .search-inp:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #fe424d; /* Highlight border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.25); /* Add a subtle focus shadow */
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"
+      ><i class="fa-regular fa-compass"></i> Explore
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        </div>
+
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2 search-inp"
+            type="search"
+            placeholder="Search destinations"
+          />
+          <button class="btn search-btn" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Make It a Stay</a>
+        <% if(!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Signup</b></a>
+        <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %> <% if(currUser) { %>
+        <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
